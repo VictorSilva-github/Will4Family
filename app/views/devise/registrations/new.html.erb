@@ -4,6 +4,46 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+   <%= f.input :fullname,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "fullname" }%>
+   <%= f.input :birthday,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "birthday" }%>
+   <%= f.input :gender,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "gender" }%>
+   <%= f.input :document_type,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "document_type" }%>
+   <%= f.input :document_number,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "document_number" }%>
+   <%= f.input :phone_number,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "phone_number" }%>
+   <%= f.input :post_code,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "post_code" }%>
+   <%= f.input :address,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "address" }%>
+   <%= f.input :city,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "city" }%>
+   <%= f.input :country,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "country" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
