@@ -1,14 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validades :encrypted_password, presence: true
-  validades :reset_password_token, presence: true
-  validades :reset_password_sent_at,
+  #validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  #validades :encrypted_password, presence: true
+  #validades :reset_password_token, presence: true
+  #validades :reset_password_sent_at,
   #validates #:custom_remember_created_at_validation
   #validates :created_at, presence: true
   #validates :updated_at, presence: true
   validates :fullname, presence: true, length: { minimum: 2, maximum: 100 }
+  validades :gender, :presence true
   validates :birthday, presence: true, date: true
 
   DOCUMENT_TYPE_OPTIONS = ['ID', 'Driver licence', 'Passaport']
@@ -27,4 +28,3 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: 'user_id'
   has_many :receives, foreign_key: 'user_id'
 end
-

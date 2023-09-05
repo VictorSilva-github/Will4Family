@@ -14,26 +14,26 @@ Victor = User.create!({
   document_type:111,
   document_number: 123456789,
   phone:number: 123456789,
-  gender: "masculino"
-  post_code:123456789
-  address: "Rua Jerico"
-  city: "Sao Paulo"
-  country: "Brasil"
-  email:"cap@gmail.com"
-  password:"123456789"
+  gender: "masculino",
+  post_code:123456789,
+  address: "Rua Jerico",
+  city: "Sao Paulo",
+  country: "Brasil",
+  email:"cap@gmail.com",
+  password:"123123",
 })
 
 Victor = User.create!({
-  fullname: "Bernard"
-  birthday: 1990/01/01
-  document_type:111
-  document_number: 123456789
-  phone:number: 123456789
-  gender: "masculino"
-  post_code:123456789
-  address: "Rua Jerico"
-  city: "Sao Paulo"
-  country: "Brasil"
-  email:"cap2@gmail.com"
-  password:"123456789"
+  fullname: "Bernard",
+  birthday: Date.new(1990,01,01),
+  document_type:111,
+  document_number: 123456789,
+  phone:number: 123456789,
+  gender: "masculino",
+  post_code:123456789,
+  address: "Rua Jerico",
+  city: "Sao Paulo",
+  country: "Brasil",
+  email:"cap2@gmail.com",
+  password:"123123",
 })
