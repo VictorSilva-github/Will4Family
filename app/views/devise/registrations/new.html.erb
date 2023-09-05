@@ -19,7 +19,11 @@
    <%= f.input :document_type,
                 required: true,
                 autofocus: true,
+                prompt: "Select a document",
+                collection: User::DOCUMENT_TYPE_OPTIONS,
+                # collection: User::DOCUMENT_TYPE_OPTIONS,
                 input_html: { autocomplete: "document_type" }%>
+
    <%= f.input :document_number,
                 required: true,
                 autofocus: true,
