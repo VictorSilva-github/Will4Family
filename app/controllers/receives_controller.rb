@@ -1,0 +1,2 @@
+class ReceivesController < ApplicationController
+end
