@@ -10,30 +10,30 @@ User.destroy_all
 
 Victor = User.create!({
   fullname: "Vitor",
-  birthday: Date.new(1990,01,01)
-  document_type:111,
-  document_number: 123456789,
-  phone:number: 123456789,
+  birthday: Date.new(1990,1,1),
+  document_type:"ID",
+  document_number: "123456789",
+  phone_number: "123456789",
   gender: "masculino",
-  post_code:123456789,
+  post_code:"123456789",
   address: "Rua Jerico",
   city: "Sao Paulo",
   country: "Brasil",
   email:"cap@gmail.com",
-  password:"123123",
+  password:"123123"
 })
 
-Victor = User.create!({
+Bernard = User.create!({
   fullname: "Bernard",
-  birthday: Date.new(1990,01,01),
-  document_type:111,
-  document_number: 123456789,
-  phone:number: 123456789,
+  birthday: Date.new(1990, 1, 1),
+  document_type: "ID",
+  document_number: "123456789",
+  phone_number: "2123456789", # Corrigido o nome do atributo
   gender: "masculino",
-  post_code:123456789,
+  post_code: "123456789",
   address: "Rua Jerico",
   city: "Sao Paulo",
   country: "Brasil",
-  email:"cap2@gmail.com",
-  password:"123123",
+  email: "cap2@gmail.com",
+  password: "123123"
 })

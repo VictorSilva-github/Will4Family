@@ -9,8 +9,8 @@ class User < ApplicationRecord
   #validates :created_at, presence: true
   #validates :updated_at, presence: true
   validates :fullname, presence: true, length: { minimum: 2, maximum: 100 }
-  validades :gender, :presence true
-  validates :birthday, presence: true, date: true
+  validates :gender, presence: true
+  validates :birthday, presence: true
 
   DOCUMENT_TYPE_OPTIONS = ['ID', 'Driver licence', 'Passaport']
   validates :document_type, presence: true, inclusion: { in: DOCUMENT_TYPE_OPTIONS }
