@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :document_type, presence: true, inclusion: { in: DOCUMENT_TYPE_OPTIONS }
 
   validates :document_number, presence: true
-  validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\+\d{2}\s?)?(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }
+  validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }
   validates :post_code, presence: true
   validates :address, presence: true
   validates :city, presence: true
