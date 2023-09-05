@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+User.destroy_all
+
+Victor = User.create!({
+  fullname: "Vitor",
+  birthday: Date.new(1990,1,1),
+  document_type:"ID",
+  document_number: "123456789",
+  phone_number: "123456789",
+  gender: "masculino",
+  post_code:"123456789",
+  address: "Rua Jerico",
+  city: "Sao Paulo",
+  country: "Brasil",
+  email:"cap@gmail.com",
+  password:"123123"
+})
+
+Bernard = User.create!({
+  fullname: "Bernard",
+  birthday: Date.new(1990, 1, 1),
+  document_type: "ID",
+  document_number: "123456789",
+  phone_number: "2123456789", # Corrigido o nome do atributo
+  gender: "masculino",
+  post_code: "123456789",
+  address: "Rua Jerico",
+  city: "Sao Paulo",
+  country: "Brasil",
+  email: "cap2@gmail.com",
+  password: "123123"
+})
