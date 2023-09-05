@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_204532) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_172422) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: :cascade do |t|
+    t.string "message_type"
+    t.string "description"
+    t.string "user_cheking"
+    t.date "last_checking_at"
+    t.string "tolerance_days"
+    t.date "ultimate_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "receive_messages", force: :cascade do |t|
+    t.bigint "message_id", null: false
+    t.bigint "receive_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_receive_messages_on_message_id"
+    t.index ["receive_id"], name: "index_receive_messages_on_receive_id"
+  end
+
+  create_table "receives", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "relationship"
+    t.string "phone_number"
+    t.string "additional_info"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_receives_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,4 +69,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_204532) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "messages", "users"
+  add_foreign_key "receive_messages", "messages"
+  add_foreign_key "receive_messages", "receives", column: "receive_id"
+  add_foreign_key "receives", "users"
 end
