@@ -7,3 +7,4 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: 'user_id'
   has_many :receives, foreign_key: 'user_id'
 end
+
