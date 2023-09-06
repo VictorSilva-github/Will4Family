@@ -1,38 +1,36 @@
 class ReceivesController < ApplicationController
-
   def index
     @receives = Receive.all
-  end
-
-  def new
-    @receive = Receive.new
-  end
-
-  # Talvez ARRUMAR AQUI
-  def create
-    @receive = Receive.new(receive_params)
-    if @receive.save
-      redirect_to @receive
-    else
-      render 'new'
-    end
   end
 
   def show
     @receive = Receive.find(params[:id])
   end
 
+  def new
+    @receive = Receive.new
+  end
+
+  def create
+    @receive = Receive.new(receive_params)
+    @receive.user = current_user
+    if @receive.save
+      redirect_to @receive
+    else
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
   def edit
     @receive = Receive.find(params[:id])
   end
 
-  # Talvez ARRUMAR AQUI
   def update
     @receive = Receive.find(params[:id])
     if @receive.update(receive_params)
       redirect_to @receive
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
@@ -44,9 +42,8 @@ class ReceivesController < ApplicationController
 
   private
 
-   #Talvez ARRUMAR AQUI
   def receive_params
-    params.require(:receive).permit(:title, :text)
+    params.require(:receive).permit(:name, :email, :relationship, :phone_number, :aditional_info)
   end
 
   def message_params
