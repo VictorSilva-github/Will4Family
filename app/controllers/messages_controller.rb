@@ -7,11 +7,14 @@ class MessagesController < ApplicationController
     @receives = current_user.receives
   end
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   def new
     @message = Message.new
   end
 
-  # Talvez ARRUMAR AQUI
   def create
     @message = Message.new(message_params)
     @message.user = current_user
@@ -23,16 +26,10 @@ class MessagesController < ApplicationController
     end
   end
 
-  def show
-    @message = Message.find(params[:id])
-  end
-
   def edit
     @message = Message.find(params[:id])
-    @message.update(message_params)
   end
 
-  # Talvez ARRUMAR AQUI
   def update
     @message = Message.find(params[:id])
     if @message.update(message_params)
