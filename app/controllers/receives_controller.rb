@@ -46,4 +46,7 @@ class ReceivesController < ApplicationController
     params.require(:receive).permit(:name, :email, :relationship, :phone_number, :aditional_info)
   end
 
+  def message_params
+    params.require(:message).permit(:message_type, :description, :user_cheking, :last_checking_at, :tolerance_days, :ultimate_date, :user_id)
+  end
 end
