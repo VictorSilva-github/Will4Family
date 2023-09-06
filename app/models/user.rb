@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   validates :gender, presence: true
   validates :birthday, presence: true
+  validate :birthday_range
   # validates :document_type, presence: true, inclusion: { in: DOCUMENT_TYPE_OPTIONS }
   validates :document_type, presence: { message: 'can\'t be blank' }, inclusion: { in: DOCUMENT_TYPE_OPTIONS, message: 'is not included in the list' }
 
@@ -22,4 +23,23 @@ class User < ApplicationRecord
 
   has_many :messages, foreign_key: 'user_id'
   has_many :receives, foreign_key: 'user_id'
+
+  private
+
+  def birthday_range
+    if birthday.present?
+      if birthday < DateTime.now - 120.year
+        errors.add(:birthday, "invalidate")
+      elsif birthday > DateTime.now
+        errors.add(:birthday, "invalidate")
+      end
+    end
+  end
+
+
+
+
+
+
+
 end
