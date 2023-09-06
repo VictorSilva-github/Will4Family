@@ -1,0 +1,33 @@
+<h1>My Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Message Type</th>
+      <th>Description</th>
+      <th>User Checking</th>
+      <th>Last Checking At</th>
+      <th>Tolerance Days</th>
+      <th>Ultimate Date</th>
+      <th>User ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.message_type %></td>
+        <td><%= message.description %></td>
+        <td><%= message.user_cheking %></td>
+        <td><%= message.last_checking_at %></td>
+        <td><%= message.tolerance_days %></td>
+        <td><%= message.ultimate_date %></td>
+        <td><%= message.user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', receives_path %>
