@@ -7,14 +7,20 @@
         <%= f.input :description %>
         <%= f.input :user_cheking %>
 
-        <%# f.input :last_checking_at, as: :date_select %>
-        <%# f.label :last_checking_at %>
-        <%# f.date_select :last_checking_at %>
-        <%= f.input :last_checking_at, as: :string, wrapper: :date, input_html: {value: I18n.l(f.object.date)} %>
 
-        <%= f.input :tolerance_days %>
-        <%= f.input :ultimate_date, as: :date_select %>
-        <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
+      <%= f.input :last_checking_at,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+      <%# NAO PODE SER MENO QUE last_checking_at %>
+      <%= f.input :ultimate_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+      <%= f.select :tolerance_days, (1..5), prompt: "Select tolerance days" %>
+
+         <%# CASO O RECEIVE JA EXISTE %>
+        <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
         <%= f.button :submit %>
       <% end %>
     </div>
