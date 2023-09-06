@@ -21,5 +21,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :messages, foreign_key: 'user_id'
-  has_many :receives, foreign_key: 'user_id'
+  has_many :receives, class_name: 'Receive', foreign_key: 'user_id'
 end

@@ -12,13 +12,13 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= receive.name %></td>
+        <td><%# receive.name %></td>
         <td><%= message.message_type %></td>
-        <td><%= message.user_checking %></td>
+        <td><%= message.user_cheking %></td>
         <td><%= message.last_checking_at %></td>
-        <td><%= link_to 'Show', receive %></td>
-        <td><%= link_to 'Edit', edit_receive_path(receive) %></td>
-        <td><%= link_to 'Destroy', receive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%# link_to 'Show', receive %></td>
+        <td><%# link_to 'Edit', edit_receive_path(receive) %></td>
+        <td><%# link_to 'Destroy', receive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
