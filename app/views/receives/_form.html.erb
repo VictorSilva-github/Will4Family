@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    <% if receive.id.present?%>
+      <h3> Update your receive</h3>
+    <% else %>
+      <h3>Create a new receive</h3>
+    <% end %>
+    <div class="card-body bg-white p-3">
+
+      <%= simple_form_for(receive) do |f| %>
+       <%= f.input :name, label: "name" %>
+        <%= f.input :email, label: "email" %>
+        <%= f.input :relationship, label: "relationship" %>
+        <%= f.input :phone_number, label: "Phone Number" %>
+        <%= f.input :additional_info, label: "additional Info" %>
+        <%= f.submit receive.id.present? ? "Update" : "Create", class: "btn btn-primary mt-3" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
