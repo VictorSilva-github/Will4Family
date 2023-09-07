@@ -9,16 +9,14 @@ class ReceivesController < ApplicationController
 
   def new
     @receive = Receive.new
-    @message = Message.find(params[:message_id])
   end
 
   def create
     @receive = Receive.new(receive_params)
     @receive.user = current_user
-    @message = Message.find(params[:message_id])
     if @receive.save
       # redirect_to para a show da join table
-      redirect_to message_path(params[:message_id])
+      redirect_to messages_path
     else
       render 'new', status: :unprocessable_entity
     end
@@ -31,7 +29,7 @@ class ReceivesController < ApplicationController
   def update
     @receive = Receive.find(params[:id])
     if @receive.update(receive_params)
-      redirect_to @receive
+      redirect_to message_path(params[:receive][:message_id])
     else
       render 'edit', status: :unprocessable_entity
     end
@@ -39,8 +37,9 @@ class ReceivesController < ApplicationController
 
   def destroy
     @receive = Receive.find(params[:id])
+    @receive.receive_messages.destroy.all
     @receive.destroy
-    redirect_to receives_path
+    redirect_to message_path
   end
 
   private

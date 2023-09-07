@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :receive_messages, only: [:new, :create]
   end
   resources :receives
+
+  delete 'receive_messages/:id', to: 'receive_messages#destroy', as: :receive_message
 end
