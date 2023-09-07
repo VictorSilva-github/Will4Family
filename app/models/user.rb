@@ -7,10 +7,9 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   validates :gender, presence: true
   validates :birthday, presence: true
-  #validates :birthday_range
   # validates :document_type, presence: true, inclusion: { in: DOCUMENT_TYPE_OPTIONS }
   validates :document_type, presence: { message: 'can\'t be blank' }, inclusion: { in: DOCUMENT_TYPE_OPTIONS, message: 'is not included in the list' }
-
+  validate :birthday_range
   validates :document_number, presence: true, length: { minimum: 5, maximum: 15 }, uniqueness: true
   validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }
   validates :post_code, presence: true, length: { minimum: 5, maximum: 10 }
@@ -22,24 +21,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :messages, foreign_key: 'user_id'
-  has_many :receives, foreign_key: 'user_id'
+  has_many :receives, class_name: 'Receive', foreign_key: 'user_id'
+
 
   private
 
   def birthday_range
     if birthday.present?
-      if birthday < DateTime.now - 120.year
+      if birthday < DateTime.now - 100.year
         errors.add(:birthday, "invalidate")
       elsif birthday > DateTime.now
         errors.add(:birthday, "invalidate")
       end
     end
   end
-
-
-
-
-
-
-
 end

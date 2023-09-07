@@ -1,29 +1,24 @@
-<h1>Messages</h1>
+<h1 class="padding">My messages</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>all your messages</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <% if @messages.any? %>
+  <div class="w-50">
     <% @messages.each do |message| %>
-      <tr>
-        <td><%= receive.name %></td>
-        <td><%= message.message_type %></td>
-        <td><%= message.user_checking %></td>
-        <td><%= message.last_checking_at %></td>
-        <td><%= link_to 'Show', receive %></td>
-        <td><%= link_to 'Edit', edit_receive_path(receive) %></td>
-        <td><%= link_to 'Destroy', receive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card m-2 bg-black">
+        <%= link_to message_path(message), style: "text-decoration: none;" do %>
+          <div class="card-body">
+            <h2 class="card-title" style="color: white;"><%= message.message_type %></h2>
+            <p class="card-text bold-text large-text" style="color: white;">User Checking: <%= message.user_cheking %></p>
+            <p class="card-text bold-text large-text" style="color: white;">Programmed Date: <%= message.ultimate_date %></p>
+            <p class="card-text bold-text large-text" style="color: white;">Within: <%= message.tolerance_days %></p>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%# <%= link_to 'New Receive', new_receive_path %>
+  </div>
+<% else %>
+  <div class="jumbotron text-center">
+    <h1 class="display-4">No Activities</h1>
+    <p class="lead">You don't have any messages yet.</p>
+    <%= link_to "+", new_message_path, class: "btn btn-success btn-lg btn-attention", role: "button" %>
+  </div>
+<% end %>

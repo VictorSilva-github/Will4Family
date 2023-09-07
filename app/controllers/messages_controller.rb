@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
+  before_action :set_message, only: [:show, :destroy, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show ]
+
   def index
-    @messages = Message.all
+    @messages = current_user.messages
+    @receives = current_user.receives
   end
 
   def show
@@ -14,13 +18,13 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+
+
     if @message.save
-
       redirect_to new_message_receive_message_path(@message)
+      # redirect_to new_receife_path(message_id:@message.id), notice: 'Message was successfully created.'
     else
-
-      render 'new'
-
+      render :new, notice: "Sorry. The message couldn't be created."
     end
   end
 
@@ -29,7 +33,7 @@ class MessagesController < ApplicationController
   end
 
   def update
-    @message = Message.find(params[:id])
+    # @message = Message.find(params[:id])
     if @message.update(message_params)
       redirect_to @message
     else
@@ -38,14 +42,18 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
     @message.destroy
     redirect_to messages_path
   end
 
   private
 
+  def set_message
+    @message = Message.find(params[:id])
+  end
+
+  # Talvez ARRUMAR AQUI
   def message_params
-    params.require(:message).permit( :message_type, :description, :user_cheking, :tolerance_days, :ultimate_date)
+    params.require(:message).permit(:message_type, :description, :user_cheking, :tolerance_days, :ultimate_date)
   end
 end

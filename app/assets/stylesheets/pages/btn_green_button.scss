@@ -1,0 +1,15 @@
+.btn-attention {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  /* Add any other styling properties you want */
+
+  /* Hover effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.btn-attention:hover {
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+}
