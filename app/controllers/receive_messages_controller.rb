@@ -1,4 +1,5 @@
 class ReceiveMessagesController < ApplicationController
+
   def new
     @receive_message = ReceiveMessage.new
     @message = Message.find(params[:message_id])
@@ -14,7 +15,12 @@ class ReceiveMessagesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
+  def destroy
+    @receive_message = ReceiveMessage.find(params[:id])
+    @receive_message.destroy
+    redirect_to message_path(@receive_message.message)
   end
 
   private

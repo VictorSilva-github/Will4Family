@@ -7,7 +7,25 @@
       <p class="card-text">Description: <%= @message.description %></p>
       <p class="card-text">User Checking: <%= @message.user_cheking %></p>
       <p class="card-text">Programmed Date: <%= @message.ultimate_date %></p>
-      <p class="card-text">Within: <%= @message.tolerance_days %></p>
+      <p class="card-text">Within: <%= @message.tolerance_days %> after checking date </p>
+      <p>**************** AQUI PRECISA DE UM BOX ou CARD dos receivers </p>
+
+    <% if @message.receive_messages.present? %>
+      <% @message.receive_messages.each do |receive_message| %>
+        <div class="card card-sm custom-card-width">
+          <div class="card-header">
+            <h5 class="card-title">Receiver Message</h5>
+          </div>
+          <div class="card-body">
+            <p>Receive: <%= receive_message.receive.name %></p>
+            <p>Email: <%= receive_message.receive.email %></p>
+            <%= link_to "edit", edit_receife_path(receive_message.receive, message: @message) %> |
+            <%= link_to "delete", receive_message_path(receive_message), data: {turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
       <div class="actions">
         <%= link_to message_path(@message), data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete }, class: "btn btn-danger", method: :delete do %>
           Delete
@@ -15,6 +33,7 @@
         <%= link_to edit_message_path(@message), data: { turbo_confirm: "Do you want to update?" }, class: "btn btn-primary" do %>
           Edit
         <% end %>
+          <%= link_to "Add Receiver", new_message_receive_message_path(@message), method: :post, class: "btn btn-success" %>
       </div>
     </div>
   </div>

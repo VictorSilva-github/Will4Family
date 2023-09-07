@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :user
-  has_many :receive_messages, foreign_key: 'message_id'
+  has_many :receive_messages, foreign_key: 'message_id', dependent: :destroy
   has_many :receives, through: :receive_messages
   validates :user_id, presence: true
 

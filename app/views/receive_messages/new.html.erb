@@ -6,24 +6,11 @@
 
       <%= simple_form_for([@message, @receive_message]) do |f| %>
 
-       <%= f.association :receive, label: "receive" %>
-
-
-
-        <%= link_to "Create msg", messages_path, class: "btn btn-primary" %>
-        <%= link_to "Add New", messages_path, method: :post, class: "btn btn-success" %>
-         <%= link_to "+", messages_path, method: :post, class: "btn btn-success" %>
-
-
-
-
-
-
-
-
-
-
+        <%= f.association :receive, label: "receive" %>
+        <%= f.submit "Create msg", class: "btn btn-primary" %>
       <% end %>
+        <%= link_to "Add New", new_receife_path, method: :post, class: "btn btn-success" %>
+        <%= link_to "+", new_receife_path, method: :post, class: "btn btn-success" %>
       </div>
     </div>
   </div>

@@ -14,7 +14,9 @@
         <%= f.input :relationship, label: "relationship" %>
         <%= f.input :phone_number, label: "Phone Number" %>
         <%= f.input :additional_info, label: "additional Info" %>
-        <%#f.input :message_id, :as => :hidden, :input_html => { :value => @message.id } %>
+       <%=
+        f.input :message_id, :as => :hidden, :input_html => { value: params[:message] }
+        %>
         <%= f.submit receive.id.present? ? "Update" : "Create",  class: "btn btn-primary mt-3" %>
 
       <% end %>
