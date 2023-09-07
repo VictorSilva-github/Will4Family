@@ -9,14 +9,16 @@ class ReceivesController < ApplicationController
 
   def new
     @receive = Receive.new
+    @message = Message.find(params[:message_id])
   end
 
   def create
     @receive = Receive.new(receive_params)
     @receive.user = current_user
+    @message = Message.find(params[:message_id])
     if @receive.save
       # redirect_to para a show da join table
-      # redirect_to
+      redirect_to message_path(params[:message_id])
     else
       render 'new', status: :unprocessable_entity
     end
@@ -48,6 +50,6 @@ class ReceivesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:message_type, :description, :user_cheking, :last_checking_at, :tolerance_days, :ultimate_date, :user_id)
+    params.require(:message).permit(:message_type, :description, :user_cheking, :last_checking_at, :tolerance_days, :ultimate_date)
   end
 end

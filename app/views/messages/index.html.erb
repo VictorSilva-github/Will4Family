@@ -1,14 +1,24 @@
 <h1 class="padding">My messages</h1>
-  <div class="card-grid w-50">
+
+  <% if @messages.any? %>
+  <div class="w-50">
     <% @messages.each do |message| %>
-      <div class="card m-2">
-        <div class="card-body">
-        <h2> <%= link_to message.message_type, message_path(message)%></h2>
-          <h5 class="card-title">Message Type: <%= message.message_type %></h5>
-          <p class="card-text">User Checking: <%= message.user_cheking %></p>
-          <p class="card-text">Programmed Date: <%= message.ultimate_date %></p>
-          <p class="card-text">Within: <%= message.tolerance_days %></p>
-        </div>
+      <div class="card m-2 bg-black">
+        <%= link_to message_path(message), style: "text-decoration: none;" do %>
+          <div class="card-body">
+            <h2 class="card-title" style="color: white;"><%= message.message_type %></h2>
+            <p class="card-text bold-text large-text" style="color: white;">User Checking: <%= message.user_cheking %></p>
+            <p class="card-text bold-text large-text" style="color: white;">Programmed Date: <%= message.ultimate_date %></p>
+            <p class="card-text bold-text large-text" style="color: white;">Within: <%= message.tolerance_days %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
+<% else %>
+  <div class="jumbotron text-center">
+    <h1 class="display-4">No Activities</h1>
+    <p class="lead">You don't have any messages yet.</p>
+    <%= link_to "+", new_message_path, class: "btn btn-success btn-lg btn-attention", role: "button" %>
+  </div>
+<% end %>

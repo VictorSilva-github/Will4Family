@@ -5,8 +5,8 @@ class Message < ApplicationRecord
   validates :user_id, presence: true
 
   validates :message_type, presence: true
-  # enum :message_type, [ :last_wishes, :last_words, :passwords, :secrets, :will, :message ]
-  enum message_type: { last_wishes: 0, last_words: 1, passwords: 2, secrets: 3, will: 4, message: 5 }
+  enum message_type: { "Message" => 0, "Secrets" => 1, "Passwords" => 2, "Last Wishes" => 3, "Last Words " => 4, "Will For Family" => 5 }
+  # enum message_type: { Last Wishes: 0, Last Words: 1, Passwords: 2, Secrets: 3, Will: 4, Message: 5 }
   validates :description, presence: true
   validates :user_cheking, presence: true
   # validates :last_checking_at, presence: true
