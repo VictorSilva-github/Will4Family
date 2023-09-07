@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= @message.description %>
+    <div class="card-body bg-white p-3">
+
+      <%= simple_form_for([@message, @receive_message]) do |f| %>
+
+       <%= f.association :receive, label: "receive" %>
+
+
+
+        <%= link_to "Create msg", messages_path, class: "btn btn-primary" %>
+        <%= link_to "Add New", messages_path, method: :post, class: "btn btn-success" %>
+         <%= link_to "+", messages_path, method: :post, class: "btn btn-success" %>
+
+
+
+
+
+
+
+
+
+
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

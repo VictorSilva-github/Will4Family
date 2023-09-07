@@ -1,2 +1,0 @@
-class ReceivesMessagesController < ApplicationController
-end
