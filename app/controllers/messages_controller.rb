@@ -13,10 +13,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @message.user = current_user
     if @message.save
-      redirect_to @message
+
+      redirect_to new_message_receive_message_path(@message)
     else
+
       render 'new'
+
     end
   end
 
@@ -42,6 +46,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:user_id, :message_type, :description, :user_checkin, :last_checkin_at, :tolerance_days, :ultimate_date)
+    params.require(:message).permit( :message_type, :description, :user_cheking, :tolerance_days, :ultimate_date)
   end
 end

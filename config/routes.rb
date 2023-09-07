@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :profiles
-  resources :messages
+  resources :messages do
+    resources :receive_messages, only: [:new, :create]
+  end
   resources :receives
 end
