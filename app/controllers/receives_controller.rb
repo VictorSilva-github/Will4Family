@@ -15,7 +15,8 @@ class ReceivesController < ApplicationController
     @receive = Receive.new(receive_params)
     @receive.user = current_user
     if @receive.save
-      redirect_to @receive
+      # redirect_to para a show da join table
+      # redirect_to
     else
       render 'new', status: :unprocessable_entity
     end
@@ -43,7 +44,7 @@ class ReceivesController < ApplicationController
   private
 
   def receive_params
-    params.require(:receive).permit(:name, :email, :relationship, :phone_number, :aditional_info)
+    params.require(:receive).permit(:name, :email, :relationship, :phone_number, :additional_info)
   end
 
   def message_params

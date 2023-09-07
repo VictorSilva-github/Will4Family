@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :profiles
   resources :messages
-  resources :receives, as: "receive"
+  resources :receives
 end

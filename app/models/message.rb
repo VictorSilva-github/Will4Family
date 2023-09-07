@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
-  belongs_to :user, foreign_key: 'user_id'
+  belongs_to :user
   has_many :receive_messages, foreign_key: 'message_id'
-  has_many :receives, class_name: "Receive", through: :receive_messages
+  has_many :receives, through: :receive_messages
   validates :user_id, presence: true
 
   validates :message_type, presence: true
