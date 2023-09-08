@@ -8,6 +8,7 @@
     <% end %>
     <div class="card-body bg-white p-3">
       <%= simple_form_for @message do |f| %>
+        <%= f.input :title %>
         <%= f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type" %>
         <%= f.input :description %>
 
