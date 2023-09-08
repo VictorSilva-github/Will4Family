@@ -10,7 +10,7 @@ User.destroy_all
 
 Victor = User.create!({
   fullname: "Vitor",
-  birthday: Date.new(1990, 1, 1),
+  birthday: Date.new(1990, 01, 01),
   document_type:"ID",
   document_number: "1231456789",
   phone_number: "1121555786",
@@ -25,7 +25,7 @@ Victor = User.create!({
 
 Bernard = User.create!({
   fullname: "Bernard",
-  birthday: Date.new(1990, 1, 1),
+  birthday: Date.new(1990, 01, 01),
   document_type: "ID",
   document_number: "1234233367189",
   phone_number: "1121335786", # Corrigido o nome do atributo
