@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :destroy, :update]
-  skip_before_action :authenticate_user!, only: [:index, :show ]
+  before_action :set_message, only: [ :show, :destroy, :update ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
     @messages = current_user.messages
@@ -18,11 +18,8 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
-
-
     if @message.save
-      redirect_to new_message_receive_message_path(@message)
-      # redirect_to new_receife_path(message_id:@message.id), notice: 'Message was successfully created.'
+      redirect_to new_message_receive_message_path(@message), notice: 'Message was successfully created.'
     else
       render :new, notice: "Sorry. The message couldn't be created."
     end
