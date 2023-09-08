@@ -16,7 +16,8 @@ class ReceivesController < ApplicationController
     @receive.user = current_user
     if @receive.save
       # redirect_to para a show da join table
-      redirect_to messages_path
+      
+      redirect_to message_path(params[:receive][:message_id])
     else
       render 'new', status: :unprocessable_entity
     end

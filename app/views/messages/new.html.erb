@@ -1,4 +1,6 @@
 <%= render "form", message: @message %>
 
-<h2>ARRUMAR BACK</h2>
-<%= link_to 'Back', messages_path %>
+
+
+
+<%= link_to raw('&larr; Back'), :back, class: 'btn btn-primary' %>
