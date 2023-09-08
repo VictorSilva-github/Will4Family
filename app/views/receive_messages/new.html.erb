@@ -11,7 +11,7 @@
       <% end %>
       <p>*********</p>
         <p>Create a new receiver whom is not in your base</p>
-        <%= link_to "Create a receiver", new_receife_path, method: :post, class: "btn btn-primary" %>
+        <%= link_to "Create a receiver", new_receife_path(message: @message), method: :post, class: "btn btn-primary" %>
         <%= link_to "+", new_receife_path, method: :post, class: "btn btn-primary" %>
       </div>
     </div>
