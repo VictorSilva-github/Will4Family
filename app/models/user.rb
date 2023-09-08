@@ -28,10 +28,10 @@ class User < ApplicationRecord
 
   def birthday_range
     if birthday.present?
-      if birthday < DateTime.now - 100.year
-        errors.add(:birthday, "invalidate")
-      elsif birthday > DateTime.now
-        errors.add(:birthday, "invalidate")
+      if birthday == Date.today
+        errors.add(:birthday, "It cannot be the same as the current day.")
+      elsif birthday > Date.today || birthday > 100.years.ago.to_date
+        errors.add(:birthday, "Invalid date of birth.")
       end
     end
   end
