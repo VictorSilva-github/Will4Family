@@ -33,7 +33,7 @@
         <%= link_to edit_message_path(@message), data: { turbo_confirm: "Do you want to update?" }, class: "btn btn-primary" do %>
           Edit
         <% end %>
-          <%= link_to "Add Receiver", new_message_receive_message_path(@message), method: :post, class: "btn btn-success" %>
+          <%= link_to "Create receiver", new_message_receive_message_path(@message), method: :post, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

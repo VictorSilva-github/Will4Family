@@ -6,11 +6,13 @@
 
       <%= simple_form_for([@message, @receive_message]) do |f| %>
 
-        <%= f.association :receive, label: "receive" %>
-        <%= f.submit "Create msg", class: "btn btn-primary" %>
+        <%= f.association :receive, label: "Add a receiver already in you base" %>
+        <%= f.submit "Add Receiver", class: "btn btn-success" %>
       <% end %>
-        <%= link_to "Add New", new_receife_path, method: :post, class: "btn btn-success" %>
-        <%= link_to "+", new_receife_path, method: :post, class: "btn btn-success" %>
+      <p>*********</p>
+        <p>Create a new receiver whom is not in your base</p>
+        <%= link_to "Create a receiver", new_receife_path, method: :post, class: "btn btn-primary" %>
+        <%= link_to "+", new_receife_path, method: :post, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
