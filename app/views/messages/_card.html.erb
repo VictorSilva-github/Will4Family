@@ -1,14 +1,17 @@
 <% @messages.each do |message| %>
-  <div class="card m-2 bg-black">
+  <div class="card m-2 p-2">
     <%= link_to message_path(message), style: "text-decoration: none;" do %>
       <div class="card-header">
         <h2 class="card-title"><%= message.title %></h2>
       </div>
       <div class="card-body">
-        <p><%= message.message_type %></p>
-        <p class="card-text bold-text large-text" style="color: white;">Check-in: <%= message.user_cheking %></p>
-        <p class="card-text bold-text large-text" style="color: white;">Programmed Date: <%= message.ultimate_date %></p>
-        <p class="card-text bold-text large-text" style="color: white;">Tolerance: <%= message.tolerance_days %></p>
+        <ul>
+          <li><%= message.description %></li>
+          <li><%= message.message_type %></li>
+          <li>Check-in interval: <%= message.user_cheking %></li>
+          <li>Tolerance: <%= message.tolerance_days %></li>
+          <li>Programmed Date: <%= message.ultimate_date %></li>
+        </ul>
       </div>
     <% end %>
   </div>
