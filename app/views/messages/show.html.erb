@@ -1,32 +1,30 @@
-<h1>Messages</h1>
-
-<% @message %>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Message Type: <%= @message.message_type %></h5>
-      <p class="card-text">Description: <%= @message.description %></p>
-      <p class="card-text">User Checking: <%= @message.user_cheking %></p>
-      <p class="card-text">Programmed Date: <%= @message.ultimate_date %></p>
-      <p class="card-text">Within: <%= @message.tolerance_days %> after checking date </p>
-      <p>**************** AQUI PRECISA DE UM BOX ou CARD dos receivers </p>
+<div class="grid"><h1>Título: <%= @message.title %></h1> <p><%= @message.message_type %></p>
+  <% @message %>
+  <div class="card my-messages">
+    <ul>
+      <li></li>
+      <li>Description: <%= @message.description %></li>
+      <li>Check-in interval: <%= @message.user_cheking %> days</li>
+      <li>Tolerance: <%= @message.tolerance_days %> days past the last check-in</li>
+      <li>Programmed Date: <%= @message.ultimate_date %></li>
+    </ul>
 
     <% if @message.receive_messages.present? %>
-      <% @message.receive_messages.each do |receive_message| %>
-        <div class="card card-sm custom-card-width">
-          <div class="card-header">
-            <h5 class="card-title">Receiver Message</h5>
-          </div>
-          <div class="card-body">
-            <p>Receive: <%= receive_message.receive.name %></p>
-            <p>Email: <%= receive_message.receive.email %></p>
-            <%= link_to "edit", edit_receife_path(receive_message.receive, message: @message) %> |
-            <%= link_to "delete", receive_message_path(receive_message), data: {turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+        <h3>Recipients</h3>
+        <ul class="recipients-list">
+        <% @message.receive_messages.each do |receive_message| %>
 
-      <div class="actions">
+          <li> <%# RECIPIENT LIST ITEM %>
+          <%= receive_message.receive.name %> <span>(<%= receive_message.receive.email %>)</span>  <%= link_to "edit", edit_receife_path(receive_message.receive, message: @message) %> |
+            <%= link_to "delete", receive_message_path(receive_message), data: {turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
+          </li>
+
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+    <div class="actions">
         <%= link_to message_path(@message), data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete }, class: "btn btn-danger", method: :delete do %>
           Delete
         <% end %>
@@ -35,10 +33,8 @@
         <% end %>
           <%= link_to "Create receiver", new_message_receive_message_path(@message, message: @message), method: :post, class: "btn btn-primary" %>
       </div>
-    </div>
   </div>
+</div>
 <%# <%= link_to 'New Receive', new_receive_path %>
-
-
 <%# link_to 'Edit', edit_message_path(@message) %>
 <%# link_to 'Back', messages_path %>
