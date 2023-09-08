@@ -3,7 +3,6 @@ class ReceiveMessagesController < ApplicationController
   def new
     @receive_message = ReceiveMessage.new
     @message = Message.find(params[:message_id])
-
   end
 
   def create
@@ -28,5 +27,4 @@ class ReceiveMessagesController < ApplicationController
   def receive_message_params
     params.require(:receive_message).permit(:receive_id)
   end
-
 end
