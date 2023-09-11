@@ -8,16 +8,19 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "fullname" }%>
-   
+
   <%= f.input :birthday,
               required: true,
               autofocus: true,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
 
-   <%= f.input :gender,
+  <%= f.input :gender,
                 required: true,
                 autofocus: true,
+                prompt: "Select your gender",
+                collection: User::GENDER_TYPE_OPTIONS,
+                # collection: User::DOCUMENT_TYPE_OPTIONS,
                 input_html: { autocomplete: "gender" }%>
    <%= f.input :document_type,
                 required: true,
@@ -43,15 +46,18 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "address" }%>
-   <%= f.input :city,
+   <%= f.input :country,
+                collection: CS.countries.values,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "country" },
+                as: :select%>
+  <%= f.input :city,
+                collection: CS.countries.values,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "city" }%>
-   <%= f.input :country,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "country" }%>
-    <%= f.input :email,
+  <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
