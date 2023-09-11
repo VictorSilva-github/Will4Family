@@ -13,7 +13,6 @@ class LastCheckingAtJob < ApplicationJob
     end
   end
 
-  
   def ultimate_date
   @users = User.where("ultimate_date >= ? ", Date.today)
     @users.each do |user|
