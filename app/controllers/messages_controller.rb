@@ -51,6 +51,6 @@ class MessagesController < ApplicationController
 
   # Talvez ARRUMAR AQUI
   def message_params
-    params.require(:message).permit(:title, :message_type, :description, :user_cheking, :tolerance_days, :ultimate_date)
+    params.require(:message).permit(:title, :message_type, :description, :ultimate_date, :sent)
   end
 end
