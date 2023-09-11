@@ -12,14 +12,13 @@
         <%= f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type" %>
         <%= f.input :description %>
 
-        <%= f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
+      <%# f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
 
       <%# NAO PODE SER MENO QUE last_checking_at %>
       <%= f.input :ultimate_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-
-        <%= f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
+      <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
 
           <%# CASO O RECEIVE JA EXISTE %>
           <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
