@@ -6,6 +6,16 @@
 	-moz-user-select: none;
 	user-select: none;
 }
+.easy-steps {
+	h3 {
+		text-align: center;
+		margin: 30px auto;
+	}
+	i {
+		font-size: 100px;
+		padding: 40px;
+	}
+}
 
 @media (min-width: 768px) {
 	.bd-placeholder-img-lg {
