@@ -1,0 +1,17 @@
+.footer {
+	justify-content: space-between;
+	background: rgb(184, 81, 88);
+	background: linear-gradient(
+		0deg,
+		rgba(184, 81, 88, 1) 0%,
+		rgba(249, 125, 125, 1) 44%,
+		rgba(255, 173, 173, 1) 100%
+	);
+	color: #ffffff;
+	padding: 20px 30px 10px 30px;
+	border-radius: 5px 5px 0 0;
+	margin-top: 50px;
+	min-height: 60px;
+	text-align: center;
+	box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.25);
+}
