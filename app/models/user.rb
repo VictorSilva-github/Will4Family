@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validate :birthday_range
 
+  validates :user_cheking, presence: true
+  validates :tolerance_days, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   validates :document_type, presence: { message: 'can\'t be blank' }, inclusion: { in: DOCUMENT_TYPE_OPTIONS, message: 'is not included in the list' }
   validates :document_number, presence: true, length: { minimum: 5, maximum: 15 }, uniqueness: true
   # validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }

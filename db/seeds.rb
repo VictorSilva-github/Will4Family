@@ -12,6 +12,8 @@ Victor = User.create!({
   fullname: "Vitor",
   birthday: "1990-01-01",
   # birthday: Date.new(1990, 01, 01),
+  user_cheking: "60",
+  tolerance_days: "5",
   document_type:"ID",
   document_number: "1231456789",
   phone_number: "+551121555786",
@@ -27,6 +29,8 @@ Victor = User.create!({
 Bernard = User.create!({
   fullname: "Bernard",
   birthday: "1993-01-01",
+  user_cheking: "60",
+  tolerance_days: "5",
   document_type: "ID",
   document_number: "1234233367189",
   phone_number: "+551121335786", # Corrigido o nome do atributo

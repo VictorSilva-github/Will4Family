@@ -7,7 +7,7 @@
    <%= f.input :fullname,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "fullname" }%>
+                input_html: { autocomplete: "Full Name" }, label: "Full Name" %>
 
   <%= f.input :birthday,
               required: true,
@@ -18,7 +18,15 @@
    <%= f.input :gender,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "gender" }%>
+                input_html: { autocomplete: "gender" },
+                collection: ['Male', 'Female', 'Prefer not to say'] %>
+
+   <%= f.input :user_cheking, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
+
+   <%# NAO PODE SER MENO QUE last_checking_at %>
+   <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
+   <%= f.input :tolerance_days, collection: (1..5).map { |num| ["#{num} #{'day'.pluralize(num)}", num] }, label: "Select tolerance days" %>
+
    <%= f.input :document_type,
                 required: true,
                 autofocus: true,
@@ -31,11 +39,6 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "document_number" }%>
-
-   <%# f.input :phone_number,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "phone_number" }%>
 
    <%= f.input :phone_number,
                 required: true,
