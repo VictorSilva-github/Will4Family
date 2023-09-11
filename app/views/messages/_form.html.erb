@@ -7,22 +7,29 @@
       <h3>Create a new message</h3>
     <% end %>
     <div class="card-body bg-white p-3">
-      <%= simple_form_for @message do |f| %>
-        <%= f.input :title %>
-        <%= f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type" %>
-        <%= f.input :description %>
+      <%= simple_form_for @message, html: {data: {controller: "message-form"}} do |f| %>
 
-      <%# f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
+      <%= f.input :title %>
 
-      <%# NAO PODE SER MENO QUE last_checking_at %>
+      <%= f.input :message_type, collection: Message::MESSAGE_TYPE.keys, prompt: "Select a message type",
+        input_html: { data: { action: "change->message-form#displayDate" } } %>
+
       <%= f.input :ultimate_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-      <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
+            wrapper_html: { class: "d-none", data: { message_form_target: "messageDate" } },
+            input_html: { data: { controller: "datepicker" } }%>
 
-          <%# CASO O RECEIVE JA EXISTE %>
-          <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
-          <%= f.button :submit, class: "btn btn-primary"%>
+      <%= f.input :description %>
+
+      <%# f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type", id: "message_type_select" %>
+      <%# f.input :message, input_html: { disabled: true }, id: "message_input" %>
+      <%# f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
+      <%# NAO PODE SER MENO QUE last_checking_at %>
+      <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
+      <%# CASO O RECEIVE JA EXISTE %>
+      <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
+
+      <%= f.button :submit, class: "btn btn-primary"%>
         <% end %>
       </div>
     </div>
