@@ -29,13 +29,13 @@ class User < ApplicationRecord
 
   private
 
-  def send_date
-    last_sign_in_at.to_date + user_checkin.days
-  end
+  # def send_date
+  #   last_sign_in_at.to_date + user_checkin.days
+  # end
 
-  def last_tolerance_date
-    send_date + tolerance_days.days
-  end
+  # def last_tolerance_date
+  #   send_date + tolerance_days.days
+  # end
 
   def birthday_range
     if birthday.present?
