@@ -1,31 +1,27 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%# image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <i class="fa-solid fa-ghost fa-xl" style="color: #e5a50a;"> </i> W4F
+      <%= image_tag("w4f-logo.png") %> <span>Maybe it is not too late.</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
          <li class="nav-item active">
           <%= link_to root_path, class: "nav-link" do %>
-            <i class="fa-solid fa-house-user fa-xl pe-1" style="color: #e5a50a;"></i>
+            <i class="fa-solid fa-house"></i>
           <% end %>
         </li>
           <li class="nav-item">
             <%= link_to messages_path, class: "nav-link" do %>
-              <i class="fa-solid fa-envelopes-bulk fa-2xl pe-1" style="color: #e5a50a;"></i>
+              <i class="fa-solid fa-hand-holding-heart"></i>
             <% end %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%# image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-            <i class="fa-solid fa-users-gear fa-2xl pe-1 mt-3"></i>
+            <i class="fa-solid fa-user"></i><i class="fa-solid fa-chevron-down fa-2xs"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %>
@@ -40,5 +36,4 @@
         <% end %>
       </ul>
     </div>
-  </div>
 </div>
