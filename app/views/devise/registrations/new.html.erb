@@ -8,7 +8,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "fullname" }%>
-   
+
   <%= f.input :birthday,
               required: true,
               autofocus: true,
@@ -31,10 +31,19 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "document_number" }%>
-   <%= f.input :phone_number,
+
+   <%# f.input :phone_number,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "phone_number" }%>
+
+   <%= f.input :phone_number,
+                required: true,
+                autofocus: true,
+                label: "Telefone",
+                placeholder: "+XXX XXXX-XXXX",
+                input_html: { autocomplete: "phone_number" } %>
+
    <%= f.input :post_code,
                 required: true,
                 autofocus: true,

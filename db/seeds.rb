@@ -14,7 +14,7 @@ Victor = User.create!({
   # birthday: Date.new(1990, 01, 01),
   document_type:"ID",
   document_number: "1231456789",
-  phone_number: "1121555786",
+  phone_number: "+551121555786",
   gender: "masculino",
   post_code:"123456789",
   address: "Rua Jerico",
@@ -29,7 +29,7 @@ Bernard = User.create!({
   birthday: "1993-01-01",
   document_type: "ID",
   document_number: "1234233367189",
-  phone_number: "1121335786", # Corrigido o nome do atributo
+  phone_number: "+551121335786", # Corrigido o nome do atributo
   gender: "masculino",
   post_code: "123456789",
   address: "Rua Jerico",

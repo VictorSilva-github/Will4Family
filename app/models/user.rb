@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   validates :document_type, presence: { message: 'can\'t be blank' }, inclusion: { in: DOCUMENT_TYPE_OPTIONS, message: 'is not included in the list' }
   validates :document_number, presence: true, length: { minimum: 5, maximum: 15 }, uniqueness: true
-  validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }
+  # validates :phone_number, presence: true, length: { minimum: 9, maximum: 15 }, format: { with: /\A(\(\d{2}\)|\d{2})[-.\s]?\d{4,5}[-.\s]?\d{4}\z/ }
+  validates :phone_number, presence: true, length: { minimum: 9, maximum: 20 }, format: { with: /\A\+\d{1,3}\s?\d{1,8}[-]?\d{4}\z/ }
   validates :post_code, presence: true, length: { minimum: 5, maximum: 10 }
   validates :address, presence: true
   validates :city, presence: true
