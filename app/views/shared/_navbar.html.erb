@@ -9,29 +9,56 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to new_message_path, class: "nav-link add-link" do %>
+              <i class="fa-solid fa-message"></i><p>new message</p>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to new_receife_path, class: "nav-link add-link" do %>
+              <i class="fa-solid fa-user"></i><p>add recipient</p>
+            <% end %>
+          </li>
+
          <li class="nav-item active">
           <%= link_to root_path, class: "nav-link" do %>
             <i class="fa-solid fa-house"></i>
           <% end %>
         </li>
+
           <li class="nav-item">
-            <%= link_to messages_path, class: "nav-link" do %>
-              <i class="fa-solid fa-hand-holding-heart"></i>
+              <%= link_to messages_path, class: "nav-link" do %>
+              <i class="fa-solid fa-message"></i>
             <% end %>
           </li>
+
+          <li class="nav-item">
+            <%= link_to messages_path, class: "nav-link" do %>
+              <i class="fa-solid fa-headset"></i>
+            <% end %>
+          </li>
+
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa-solid fa-user"></i><i class="fa-solid fa-chevron-down fa-2xs"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Contact us", "#", class: "dropdown-item" %>
+
+              <%= link_to "Contact us", contact_us_path, class: "dropdown-item" %>
+
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
+
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="fa-solid fa-right-to-bracket"></i>
+            <% end %>
+
           </li>
         <% end %>
       </ul>

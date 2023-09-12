@@ -13,7 +13,7 @@
           <div class="carousel-caption text-start">
             <h1>Secrets?</h1>
             <p>You don't have to take them with you. Share them with those who matter.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            <p><a class="btn btn-lg " href="#">Sign up today</a></p>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
           <div class="carousel-caption">
             <h1>Closure.</h1>
             <p>Leave nothing unsaid.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <p><a class="btn btn-lg " href="#">Learn more</a></p>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
           <div class="carousel-caption text-end">
             <h1>For good measure...</h1>
             <p>... little everyday reminders.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <p><a class="btn btn-lg " href="#">Browse gallery</a></p>
           </div>
         </div>
       </div>
@@ -58,31 +58,22 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
     <h3>3 easy steps to convey your feelings to your kin once you are gone:</h2>
+
       <div class="col-lg-4">
         <i class="fa-solid fa-user-plus"></i>
-
-        <h4>1 - Add a recipient</h2>
-        <p>Start by adding the recipient to your account. Make sure to fill in the form with the correct information. We can't have your last thoughts lost, can we?</p>
+        <h4>Add a recipient</h2>
+        <p>Add the recipients to your account. Make sure to fill in the form with the correct information. We can't have your last thoughts lost, can we?</p>
       </div><!-- /.col-lg-4 -->
+
       <div class="col-lg-4">
         <i class="fa-solid fa-icons"></i>
-
-        <h4>2 - Create your message</h2>
+        <h4>Create your message</h2>
         <p>Now is the time to put together images, links or attached files to be delivered to your recipient. You can send many messages to a single recipient or the same message to many recipients. No need to hold back. </p>
       </div><!-- /.col-lg-4 -->
+
       <div class="col-lg-4">
         <i class="fa-solid fa-person-circle-check"></i>
-
-        <h4>3 - look alive</h2>
+        <h4>Look alive!</h2>
         <p>We will send you a link from time to time, the period is up to you. All you have to do is click on this link to tell us you are still kicking. You can also set a time tolerance to avoid any unwanted premature deliveries, right?</p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-<div class="container">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-md-6 text-center">
-      <% if user_signed_in? %>
-        <%=link_to "+", new_message_path, class: "btn btn-success btn-lg btn-attention", role: "button" %>
-      <% end %>
-    </div>
-  </div>
-</div>

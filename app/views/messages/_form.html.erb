@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container form-container">
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div>
     <% if message.id.present? %>
       <h3> Update your message</h3>
     <% else %>
@@ -8,6 +8,9 @@
     <% end %>
     <div class="card-body bg-white p-3">
       <%= simple_form_for @message, html: {data: {controller: "message-form"}} do |f| %>
+        <%= f.input :title %>
+        <%= f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type" %>
+        <%= f.input :description %>
 
       <%= f.input :title %>
 
@@ -21,15 +24,8 @@
 
       <%= f.input :description %>
 
-      <%# f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type", id: "message_type_select" %>
-      <%# f.input :message, input_html: { disabled: true }, id: "message_input" %>
-      <%# f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
-      <%# NAO PODE SER MENO QUE last_checking_at %>
-      <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
-      <%# CASO O RECEIVE JA EXISTE %>
-      <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
-
       <%= f.button :submit, class: "btn btn-primary"%>
+          <%= f.button :submit, class: "btn "%>
         <% end %>
       </div>
     </div>

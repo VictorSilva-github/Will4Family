@@ -1,19 +1,12 @@
 <h1 class="padding">My messages</h1>
 
   <% if @messages.any? %>
-  <div class="w-50">
+  <div class="grid-container">
     <%= render "messages/card" %>
-
-          <div class="jumbotron text-center">
-            <h1 class="display-4">Add New</h1>
-            <p class="lead">W4F</p>
-            <%= link_to "+", new_message_path, class: "btn btn-success btn-lg btn-attention", role: "button" %>
-          </div>
   </div>
 <% else %>
   <div class="jumbotron text-center">
-    <h1 class="display-4">No Activities</h1>
-    <p class="lead">You don't have any messages yet.</p>
-    <%= link_to "+", new_message_path, class: "btn btn-success btn-lg btn-attention", role: "button" %>
+    <h1 class="display-4">No Activities...</h1>
+    <p class="lead">Let's get started?</p>
   </div>
 <% end %>
