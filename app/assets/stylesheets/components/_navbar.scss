@@ -7,20 +7,62 @@
 		rgba(0, 164, 255, 1) 44%,
 		rgba(126, 208, 225, 1) 100%
 	); */
-	background: rgb(184, 81, 88);
+	background: #5d165d;
 	background: linear-gradient(
-		0deg,
-		rgba(184, 81, 88, 1) 0%,
-		rgba(249, 125, 125, 1) 44%,
-		rgba(255, 173, 173, 1) 100%
+		180deg,
+		rgba(93, 22, 93, 1) 0%,
+		rgba(93, 22, 93, 1) 96%,
+		rgba(214, 182, 214, 1) 100%
 	);
 	padding: 10px 30px;
 	border-radius: 0 0 5px 5px;
 	margin-bottom: 50px;
-	box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px -15px 5px 5px rgba(0, 0, 0, 0.25);
 
 	li.nav-item {
 		margin: 10px;
+
+		&:nth-child(2) {
+			padding-right: 50px;
+		}
+
+		.nav-link {
+			padding-top: 15px;
+
+			&.nav-link.add-link {
+				background-color: #ffcd0b;
+				border-radius: 50%;
+				height: 60px;
+				width: 60px;
+				display: flex;
+				justify-content: space-around;
+				padding-top: 16px;
+
+				i {
+					color: #5d165d;
+				}
+
+				p {
+					display: none;
+				}
+
+				&:hover {
+					background-color: #5d165d;
+					i {
+						color: #ffcd0b;
+					}
+					p {
+						display: block;
+						color: #ffcd0b;
+						text-wrap: nowrap;
+						position: absolute;
+						top: 10px;
+						font-size: 14px;
+						font-weight: bold;
+					}
+				}
+			}
+		}
 
 		&:hover {
 			i {
@@ -29,11 +71,11 @@
 			}
 		}
 		&.dropdown {
-			margin-top: 18px;
+			margin-top: 24px;
 			text-decoration: none;
 
 			& > div {
-				border: solid 3px #b85158;
+				border: solid 3px #5d165d;
 				border-radius: 8px;
 				padding: 0;
 				margin: 0;
@@ -69,7 +111,7 @@
 		color: #fce99f;
 		transition: 500ms;
 	}
-	.fa-chevron-down {
+	.fa-2xs {
 		font-size: 14px;
 	}
 }

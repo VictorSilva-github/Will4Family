@@ -1,33 +1,26 @@
-<h1>My Messages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Message Type</th>
-      <th>Description</th>
-      <th>User Checking</th>
-      <th>Last Checking At</th>
-      <th>Tolerance Days</th>
-      <th>Ultimate Date</th>
-      <th>User ID</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.message_type %></td>
-        <td><%= message.description %></td>
-        <td><%= message.user_cheking %></td>
-        <td><%= message.last_checking_at %></td>
-        <td><%= message.tolerance_days %></td>
-        <td><%= message.ultimate_date %></td>
-        <td><%= message.user_id %></td>
-      </tr>
+<h1>My Messages teste</h1>
+<% @messages.each do |message| %>
+<div class="card">
+    <div class="card-header">
+    <h3><%= message.title %></h3>
+    </div>
+    <div class="card-body">
+    <ul>
+      <li><%= message.message_type %></li>
+      <li>Message<br><%= message.description %></li>
+      <li>User Check-in<br><%= message.user_cheking %></li>
+      <li>Last Check-in At<br><%= message.last_checking_at %></li>
+      <li>Tolerance Days<br><%= message.tolerance_days %></li>
+      <li>Ultimate Date<br><%= message.ultimate_date %></li>
+      <li>User ID<br><%= message.user_id %></li>
+    </ul>
+    </div>
+    <div class="card-footer">
+    </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 
-<%= link_to 'Back', receives_path %>
+<%= link_to 'Back', receives_pali %>
