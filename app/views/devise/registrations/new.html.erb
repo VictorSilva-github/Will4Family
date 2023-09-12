@@ -1,5 +1,5 @@
+<div class="container form-container">
 <h2>Sign up</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -15,7 +15,7 @@
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
 
-   <%= f.input :gender,
+  <%= f.input :gender,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "gender" },
@@ -55,15 +55,18 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "address" }%>
-   <%= f.input :city,
+   <%= f.input :country,
+                collection: CS.countries.values,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "country" },
+                as: :select%>
+  <%= f.input :city,
+                collection: CS.countries.values,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "city" }%>
-   <%= f.input :country,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "country" }%>
-    <%= f.input :email,
+  <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
@@ -82,3 +85,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
