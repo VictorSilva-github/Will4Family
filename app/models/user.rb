@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   DOCUMENT_TYPE_OPTIONS = ['ID', 'Driver Licence', 'Passport']
-  GENDER_TYPE_OPTIONS = ['Man', 'Woman', 'Prefer not to respond']
+  GENDER_TYPE_OPTIONS = ['Male', 'Female', 'Prefer not to say']
 
   validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   #validates :gender, presence: true

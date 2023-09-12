@@ -9,6 +9,7 @@ class LastCheckingAtJob < ApplicationJob
     @users.each do |user|
       user.messages.where(ultimate_date: nil).each do |message|
         UserMailer.checkin_reminder(user).deliver_now
+        send
         # envia o email no limite do prazo
         # last sign + user_checkin + tolerance_days
       end
