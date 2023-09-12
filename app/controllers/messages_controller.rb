@@ -19,6 +19,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     if @message.save
+      ###### AQUI #####
+
       redirect_to new_message_receive_message_path(@message), notice: 'Message was successfully created.'
     else
       render :new, notice: "Sorry. The message couldn't be created."
@@ -49,7 +51,16 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
-  # Talvez ARRUMAR AQUI
+    # CASO PRECISE NOVAMENTE
+  # def send
+  #   if @message.ultimate_date.present?
+  #     delivery_time = @message.ultimate_date - Date.today
+  #     ReceiveCheckMailer.receive_check_email(@message.user.receives.first.email, @message).deliver_later(wait_until: delivery_time)
+  #     #deliver_now
+  #     # caso o for ultimate
+  #   end
+  # end
+
   def message_params
     params.require(:message).permit(:title, :message_type, :description, :ultimate_date, :sent)
   end
