@@ -1,0 +1,48 @@
+.card {
+	border: none;
+	border-left: solid 20px #5d165d;
+	padding: 5px 20px;
+	height: 300px;
+
+	.card-header {
+		color: #5d165d;
+		padding: 0;
+		margin: 5px 0 0 0;
+
+		h4 {
+			margin-bottom: 0;
+			color: #5d165d;
+
+			&:hover,
+			&:any-link {
+				color: #5d165d;
+			}
+		}
+
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: 12px;
+			color: #5d165d8f;
+		}
+	}
+	.card-body {
+		padding: 0;
+		margin: 10px 0 0 0;
+		height: 100px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.card-footer {
+		padding: 0;
+		margin: 0;
+
+		p {
+			font-size: 14px;
+			text-align: right;
+			margin: 5px;
+			margin-bottom: none;
+		}
+	}
+}
