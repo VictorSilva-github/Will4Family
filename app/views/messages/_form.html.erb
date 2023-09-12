@@ -6,22 +6,16 @@
     <% else %>
       <h3>Create a new message</h3>
     <% end %>
-    <div class="card-body p-3">
-      <%= simple_form_for @message do |f| %>
-        <%= f.input :title %>
-        <%= f.input :message_type, collection: Message.message_types.keys, prompt: "Select a message type" %>
-        <%= f.input :description %>
-
-      <%# f.input :user_cheking, collection: [15, 30, 60], label: "Checking in days" %>
-
-      <%# NAO PODE SER MENO QUE last_checking_at %>
+    <div class="card-body bg-white p-3">
+      <%= simple_form_for @message, html: {data: {controller: "message-form"}} do |f| %>
+      <%= f.input :title %>
+      <%= f.input :message_type, collection: Message::MESSAGE_TYPE.keys, prompt: "Select a message type",
+        input_html: { data: { action: "change->message-form#displayDate" } } %>
       <%= f.input :ultimate_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-      <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
-
-          <%# CASO O RECIPIENT JA EXISTA %>
-          <%# <%= f.input :user_id, collection: User.pluck(:email, :id), prompt: "Select a user" %>
+            wrapper_html: { class: "d-none", data: { message_form_target: "messageDate" } },
+            input_html: { data: { controller: "datepicker" } }%>
+      <%= f.input :description %>
           <%= f.button :submit, class: "btn "%>
         <% end %>
       </div>

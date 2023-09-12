@@ -7,9 +7,12 @@ h1{
 }
 </style>
 
-<h1>Email, <%= @user.email %> </h1>
+
 <p>I hope you enjoy the website</p>
-<%= @message  %>
+<%= @message.title %>
+<%= @message.description  %>
+<h1>Quebra</h1>
+<%= @message.user.receives.first.additional_info %>
 
 <%=  %>
 

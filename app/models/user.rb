@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   DOCUMENT_TYPE_OPTIONS = ['ID', 'Driver Licence', 'Passport']
-  GENDER_TYPE_OPTIONS = ['Man', 'Woman', 'Prefer not to respond']
+  GENDER_TYPE_OPTIONS = ['Male', 'Female', 'Prefer not to say']
 
   validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   #validates :gender, presence: true
@@ -32,6 +32,14 @@ class User < ApplicationRecord
 
   private
 
+  # def send_date
+  #   last_sign_in_at.to_date + user_checkin.days
+  # end
+
+  # def last_tolerance_date
+  #   send_date + tolerance_days.days
+  # end
+
   def birthday_range
     if birthday.present?
       if birthday >= Date.today || birthday < 100.years.ago.to_date
@@ -40,15 +48,3 @@ class User < ApplicationRecord
     end
   end
 end
-
-
-# def birthday_range
-#   if birthday.present?
-#     if birthday == Date.today
-#       errors.add(:birthday, "It cannot be the same as the current day.")
-#     elsif birthday > Date.today || birthday < 100.years.ago.to_date
-#       errors.add(:birthday, "Invalid date of birth.")
-#     end
-#   end
-# end
-# end
