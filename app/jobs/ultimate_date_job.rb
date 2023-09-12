@@ -13,7 +13,10 @@ class UltimateDateJob < ApplicationJob
     @messages = Message.where("ultimate_date = ? ", Date.today)
     # @messages = Message.where("ultimate_date = ? ", Date.today)
     @messages.each do |message|
-      ReceiveCheckMailer.receive_check_email(message.user.receives.first.email, message).deliver_now
+      receive_messages = ReceiveMessage.where(message_id: message.id)
+      receive_messages.each do |receive_message|
+        ReceiveCheckMailer.receive_check_email(receive_message.receive.email, message).deliver_now
+      end
     end
   end
 end
