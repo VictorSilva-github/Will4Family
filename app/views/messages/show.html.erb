@@ -13,7 +13,9 @@
   </h2>
 
   <p><%= @message.message_type %></p>
-  <p>Scheduled for <%= @message.ultimate_date.strftime('%B %d, %Y') %></p>
+  <% if @message.ultimate_date %>
+    <p>Scheduled for <%= @message.ultimate_date.strftime('%B %d, %Y') %></p>
+  <%end %>
 </div>
 <div class="card-body height-auto">
   <p><%= @message.description %></p>
