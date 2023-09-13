@@ -6,7 +6,7 @@ class ReceiveCheckMailerTest < ActionMailer::TestCase
       fullname: "Vitor",
       birthday: "1990-01-01",
       # birthday: Date.new(1990, 01, 01),
-      user_cheking: "60",
+      checkin_days: "60",
       tolerance_days: "5",
       document_type:"ID",
       document_number: "1231456789",
@@ -31,7 +31,7 @@ class ReceiveCheckMailerTest < ActionMailer::TestCase
     # Replace with your user fixture or create a user as needed
     # debugger
     message = user.messages.first # Replace with your message fixture or create a message as needed
-    mail = ReceiveCheckMailer.receive_check_email(user.email, message)
+    mail = ReceiveCheckMailer.receive_gets_email(user.email, message)
     # debugger
     assert_emails 1 do
       mail.deliver_now

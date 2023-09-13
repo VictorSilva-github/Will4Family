@@ -48,6 +48,6 @@ class ReceivesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:message_type, :description, :user_cheking, :last_checking_at, :tolerance_days, :ultimate_date)
+    params.require(:message).permit(:message_type, :description, :checkin_days, :last_checking_at, :tolerance_days, :ultimate_date)
   end
 end
