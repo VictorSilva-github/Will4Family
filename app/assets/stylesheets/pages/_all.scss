@@ -9,9 +9,9 @@ body {
 	position: relative;
 	min-height: 100%;
 
-	&:nth-child(2).container {
+	/* 	&:nth-child(2).container {
 		padding-bottom: 250px;
-	}
+	} */
 	.unset-width {
 		width: unset;
 	}
@@ -28,6 +28,9 @@ ol {
 .container {
 	max-width: 1200px;
 	// background-color: aquamarine;
+	&.form-container:last-child(2) {
+		margin-bottom: 200px;
+	}
 }
 h2 {
 	margin-bottom: 25px;
@@ -43,7 +46,6 @@ h2 {
 	width: 600px;
 	margin-top: 50px;
 	padding: 20px;
-	margin-bottom: 200px;
 	box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.16);
 
 	.input {
@@ -143,3 +145,4 @@ i:hover {
 	color: #7e7e7e;
 	font-weight: bold;
 }
+

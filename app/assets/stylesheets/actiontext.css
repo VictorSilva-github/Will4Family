@@ -13,19 +13,69 @@
 */
 .trix-content .attachment-gallery > action-text-attachment,
 .trix-content .attachment-gallery > .attachment {
-  flex: 1 0 33%;
-  padding: 0 0.5em;
-  max-width: 33%;
+	flex: 1 0 33%;
+	padding: 0 0.5em;
+	max-width: 33%;
 }
 
-.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
-.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content
+	.attachment-gallery.attachment-gallery--2
+	> action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment,
+.trix-content
+	.attachment-gallery.attachment-gallery--4
+	> action-text-attachment,
 .trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
-  flex-basis: 50%;
-  max-width: 50%;
+	flex-basis: 50%;
+	max-width: 50%;
 }
 
 .trix-content action-text-attachment .attachment {
-  padding: 0 !important;
-  max-width: 100% !important;
+	padding: 0 !important;
+	max-width: 100% !important;
+}
+trix-editor {
+	height: 500px !important;
+	margin-bottom: 30px !important;
+}
+trix-toolbar {
+}
+trix-toolbar .trix-button-group:not(:first-child) {
+	margin-left: 1vw;
+	align-items: start;
+}
+.trix-button-group {
+	border: none !important;
+
+	#trix-toolbar-1
+		> div.trix-button-row
+		> span.trix-button-group.trix-button-group--history-tools {
+		margin-left: 0 !important;
+	}
+}
+.trix-button-row {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: space-between !important;
+	overflow-x: auto !important;
+	border: none !important;
+}
+
+.trix-button {
+	background-color: #b2d2cf !important;
+	border-radius: 3px !important;
+	margin: 1px !important;
+	transition: 500ms;
+	border: none !important;
+
+	&:hover {
+		background-color: #93bebb !important;
+		color: #ffffff !important;
+		box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.49);
+		transition: 300ms;
+	}
+	.trix-button--icon-link::before:hover {
+		filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2211%)
+			hue-rotate(298deg) brightness(111%) contrast(101%) !important;
+	}
 }
