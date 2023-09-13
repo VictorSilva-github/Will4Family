@@ -103,9 +103,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_150454) do
     t.string "address"
     t.string "city"
     t.string "country"
-    t.integer "user_cheking"
+    t.integer "checkin_days"
     t.integer "tolerance_days"
     t.date "last_checking_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

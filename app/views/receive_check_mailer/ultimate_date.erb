@@ -1,0 +1,16 @@
+<style>
+  h3 {
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 100px;
+  }
+</style>
+
+<%# AQUI E DATA PROGRAMADA %>
+<h3>This is a programmed message and this message was sent by: <%= @message.user.fullname %></h3>
+<%= @message.title %>
+<%= @message.description  %>
+
+<p>Extra info: <%=
+@message.user.receives.first.additional_info %></p>

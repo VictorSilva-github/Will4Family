@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validate :birthday_range
 
-  validates :user_cheking, presence: true
+  validates :checkin_days, presence: true
   validates :tolerance_days, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   validates :document_type, presence: { message: 'can\'t be blank' }, inclusion: { in: DOCUMENT_TYPE_OPTIONS, message: 'is not included in the list' }
@@ -24,11 +24,22 @@ class User < ApplicationRecord
   validates :country, presence: true
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable
 
   has_many :messages, foreign_key: 'user_id'
   has_many :receives, class_name: 'Receive', foreign_key: 'user_id'
 
+  def alive?
+    (Time.current - last_sign_in_at) <= checkin_days.days
+  end
+
+  def alive_tolerance?
+    (Time.current - last_sign_in_at) <= checkin_days.days + tolerance_days.days
+  end
+
+  def dead?
+    !alive? && !alive_tolerance?
+  end
 
   private
 
@@ -39,6 +50,7 @@ class User < ApplicationRecord
   # def last_tolerance_date
   #   send_date + tolerance_days.days
   # end
+
 
   def birthday_range
     if birthday.present?

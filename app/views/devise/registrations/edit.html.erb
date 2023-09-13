@@ -1,13 +1,13 @@
 <div class="container form-container">
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>My account</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
       <h1>Choose your setup days</h1>
-    <%= f.input :user_cheking, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
+    <%= f.input :checkin_days, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
     <%= f.input :tolerance_days, collection: (1..5).map { |num| ["#{num} #{'day'.pluralize(num)}", num] }, label: "Select tolerance days" %>
 
     <%= f.input :email, required: true, autofocus: true %>
