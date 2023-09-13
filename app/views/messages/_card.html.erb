@@ -6,15 +6,15 @@
       </div>
       <div class="card-body">
         <ul>
-          <li><%= message.description %>
-            <% if message.description.length > 216 %>
-              <%= link_to "read more...", message_path(message), class: "content-fade text-center" %>
-            <% end %>
+          <li>
+            <%= message.description %>
           </li>
         </ul>
       </div>
       <div class="card-footer">
-      <p class="text-end text-discreet">Scheduled for <%= message.ultimate_date.strftime('%B %d, %Y') %></p>
+      <% if message.ultimate_date %>
+        <p class="text-end text-discreet">Scheduled for <%= message.ultimate_date.strftime('%B %d, %Y') %></p>
+      <% end %>
       </div>
 
   </div>

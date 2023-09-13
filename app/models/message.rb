@@ -9,5 +9,6 @@ class Message < ApplicationRecord
   validates :message_type, presence: true
   enum message_type: MESSAGE_TYPE
   validates :description, presence: true
+  has_rich_text :description
   # validates :last_checking_at, presence: true
 end

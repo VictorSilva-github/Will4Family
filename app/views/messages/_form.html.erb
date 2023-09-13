@@ -1,5 +1,4 @@
 <div class="container form-container">
-
     <% if message.id.present? %>
       <h2>Edit your message</h2>
     <% else %>
@@ -16,9 +15,17 @@
             as: :string,
             wrapper_html: { class: "d-none", data: { message_form_target: "messageDate" } },
             input_html: { data: { controller: "datepicker" } }%>
-      <%= f.input :description %>
+      <div class="field">
+        <%= f.label :description, class: "mb-2" %>
+        <%= f.rich_text_area :description %>
+      </div>
+
+
+
       <%= f.button :submit, class: "btn btn-last"%>
 
-    <% end %>
-
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
