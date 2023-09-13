@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  MESSAGE_TYPE = { "Message" => 0, "Secrets" => 1, "Passwords" => 2, "Last Wishes" => 3, "Last Words " => 4, "Will For Family" => 5 }.freeze
+  MESSAGE_TYPE = { "Scheduled message" => 0, "Secrets" => 1, "Passwords" => 2, "Last Wishes" => 3, "Last Words " => 4, "Will For Family" => 5 }.freeze
 
   belongs_to :user
   has_many :receive_messages, dependent: :destroy

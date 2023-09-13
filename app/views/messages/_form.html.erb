@@ -1,24 +1,24 @@
 <div class="container form-container">
-  <div class="row justify-content-center">
-    <div>
+
     <% if message.id.present? %>
-      <h3> Update your message</h3>
+      <h2>Edit your message</h2>
     <% else %>
-      <h3>Create a new message</h3>
+      <h2>Create a new message</h2>
     <% end %>
-    <div class="card-body bg-white p-3">
-      <%= simple_form_for @message, html: {data: {controller: "message-form"}} do |f| %>
+
+    <%= simple_form_for @message, html: {data: {controller: "message-form"}} do |f| %>
+
       <%= f.input :title %>
       <%= f.input :message_type, collection: Message::MESSAGE_TYPE.keys, prompt: "Select a message type",
         input_html: { data: { action: "change->message-form#displayDate" } } %>
       <%= f.input :ultimate_date,
+            label: "Delivery date",
             as: :string,
             wrapper_html: { class: "d-none", data: { message_form_target: "messageDate" } },
             input_html: { data: { controller: "datepicker" } }%>
       <%= f.input :description %>
-          <%= f.button :submit, class: "btn "%>
-        <% end %>
-      </div>
-    </div>
-  </div>
+      <%= f.button :submit, class: "btn btn-last"%>
+
+    <% end %>
+
 </div>

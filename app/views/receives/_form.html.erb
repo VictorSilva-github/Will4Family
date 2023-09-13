@@ -1,26 +1,23 @@
 <div class="container form-container">
-  <div class="row justify-content-center">
-    <div>
-    <% if receive.id.present?%>
-      <h3> Update your recipient's information</h3>
-    <% else %>
-      <h3>Add a new recipient</h3>
-    <% end %>
-    <div class="card-body p-3">
 
-      <%= simple_form_for(receive) do |f| %>
-       <%= f.input :name, label: "name" %>
-        <%= f.input :email, label: "email" %>
-        <%= f.input :relationship, label: "relationship" %>
-        <%= f.input :phone_number, label: "Phone Number" %>
-        <%= f.input :additional_info, label: "additional Info" %>
-       <%=
-        f.input :message_id, :as => :hidden, :input_html => { value: params[:message] }
-        %>
-        <%= f.submit receive.id.present? ? "Save" : "Add new recipient",  class: "btn  mt-3" %>
+  <% if receive.id.present?%>
+    <h2> Update your recipient's information</h2>
+  <% else %>
+    <h2>Add a new recipient</h2>
+  <% end %>
 
-      <% end %>
-      </div>
-    </div>
-  </div>
+  <%= simple_form_for(receive) do |f| %>
+
+    <%= f.input :name, label: "name" %>
+    <%= f.input :email, label: "email" %>
+    <%= f.input :relationship, label: "relationship" %>
+    <%= f.input :phone_number, label: "Phone Number" %>
+    <%= f.input :additional_info, label: "additional Info" %>
+    <%=
+    f.input :message_id, :as => :hidden, :input_html => { value: params[:message] }
+    %>
+    <%= f.submit receive.id.present? ? "Save" : "Add new recipient",  class: "btn btn-last" %>
+
+  <% end %>
+
 </div>
