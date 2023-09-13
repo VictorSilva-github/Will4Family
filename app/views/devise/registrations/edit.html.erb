@@ -7,7 +7,7 @@
 
   <div class="form-inputs">
       <h1>Choose your setup days</h1>
-    <%= f.input :user_cheking, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
+    <%= f.input :checkin_days, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
     <%= f.input :tolerance_days, collection: (1..5).map { |num| ["#{num} #{'day'.pluralize(num)}", num] }, label: "Select tolerance days" %>
 
     <%= f.input :email, required: true, autofocus: true %>

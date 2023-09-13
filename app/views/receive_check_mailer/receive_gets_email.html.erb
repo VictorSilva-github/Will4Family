@@ -1,0 +1,15 @@
+<style>
+  h3 {
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 100px;
+  }
+</style>
+
+<%# AQUI entras as mensagens de pessoas que ja partiram. %>
+<h3>You have a message from a person who is not here anymore. <%= @message.user.fullname %></h3>
+<%= @message.title %>
+<%= @message.description  %>
+
+<p>Extra info: <%= @receive.additional_info %></p>

@@ -2,16 +2,15 @@ class LastCheckingAtJob < ApplicationJob
   queue_as :default
 
   def perform
-    # checkin users
-    puts "performing LastCheckingAtJob"
-    # listar usuarios
-    @users = User.where("DATE(last_sign_in_at) + user_cheking + tolerance_days = ? ", Date.today)
-    @users.each do |user|
-      user.messages.where(ultimate_date: nil).each do |message|
-        UserMailer.checkin_reminder(user).deliver_now
-        send
-        # envia o email no limite do prazo
-        # last sign + user_checkin + tolerance_days
+    User.all.each do |user|
+      next unless user.dead?
+
+      ReceiveCheckMailer.dead_user(user).deliver_now
+
+      user.messages.each do |message|
+        message.receives.each do |receive|
+          ReceiveCheckMailer.receive_gets_email(receive, message).deliver_now
+        end
       end
     end
   end

@@ -3,9 +3,10 @@ class ToleranceDaysJob < ApplicationJob
 
   def perform
     # tolerance days
-    @users = User.where("DATE(last_sign_in_at) + user_cheking >= :date AND DATE(last_sign_in_at) + user_cheking + tolerance_days <= :date", date: Date.today)
-    @users.each do |user|
-      UserMailer.checkin_reminder(user).deliver_now
+    User.all.each do |user|
+      next if user.alive?
+      
+      ReceiveCheckMailer.tolerance_check(user).deliver_now if user.alive_tolerance?
     end
   end
 end
