@@ -1,40 +1,52 @@
-<div class="grid"><h1>Título: <%= @message.title %></h1> <p><%= @message.message_type %></p>
-  <% @message %>
-  <div class="card my-messages">
-    <ul>
-      <li></li>
-      <li>Description: <%= @message.description %></li>
-      <%# <li>Check-in interval: <%= @message.user_cheking days</li> %>
-      <%# <li>Tolerance: <%= @message.tolerance_days days past the last check-in</li> %>
-      <li>Programmed Date: <%= @message.ultimate_date %></li>
-    </ul>
+<% @message %>
+<div class="card my-messages height-auto">
+<div class="card-header">
+  <h2 class="d-inline me-2">
+    <%= @message.title %>
+    <%= link_to edit_message_path(@message), data: { turbo_confirm: "Do you want to update?" }, class: "btn " do %>
+    <i class="fa-solid fa-pen-to-square fs-4"></i>
+  <% end %>
 
+  <%= link_to message_path(@message), data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete }, class: "btn", method: :delete do %>
+    <i class="fa-solid fa-xmark fs-4"></i>
+  <% end %>
+  </h2>
+
+  <p><%= @message.message_type %></p>
+  <p>Scheduled for <%= @message.ultimate_date.strftime('%B %d, %Y') %></p>
+</div>
+<div class="card-body height-auto">
+  <p><%= @message.description %></p>
+</div>
+<div class="card-footer">
+  <div>
     <% if @message.receive_messages.present? %>
-        <h3>Recipients</h3>
-        <ul class="recipients-list">
-        <% @message.receive_messages.each do |receive_message| %>
+      <h5 class="d-inline me-2 my-3">Recipients</h5>
 
-          <li> <%# RECIPIENT LIST ITEM %>
-          <%= receive_message.receive.name %> <span>(<%= receive_message.receive.email %>)</span>  <%= link_to "edit", edit_receife_path(receive_message.receive, message: @message) %> |
-            <%= link_to "delete", receive_message_path(receive_message), data: {turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
-          </li>
+      <%= link_to new_message_receive_message_path(@message, message: @message), method: :post, class: "d-inline fs-5" do %>
+        <i class="fa-solid fa-square-plus"></i>
+      <% end %>
 
-        <% end %>
-      </ul>
     <% end %>
   </div>
+  <div>
+    <ul class="recipients-list mt-4">
+      <% @message.receive_messages.each do |receive_message| %>
 
-    <div class="actions">
-        <%= link_to message_path(@message), data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete }, class: "btn btn-danger", method: :delete do %>
-          Delete
-        <% end %>
-        <%= link_to edit_message_path(@message), data: { turbo_confirm: "Do you want to update?" }, class: "btn " do %>
-          Edit
-        <% end %>
-          <%= link_to "Create recipient", new_message_receive_message_path(@message, message: @message), method: :post, class: "btn " %>
-      </div>
+        <li> <%# RECIPIENT LIST ITEM %>
+          <p class="fs-6 my-3"><%= receive_message.receive.name %> (<%= receive_message.receive.email %>)
+            <%= link_to edit_receife_path(receive_message.receive, message: @message), class: "text-decoration-none me-3" do %>
+              <i class="fa-solid fa-pen-to-square fs-5 ms-2 text-decoration-none"> </i>
+            <% end %>
+
+            <%= link_to receive_message_path(receive_message), data: {turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } do %>
+              <i class="fa-solid fa-xmark fs-5"></i>
+            <% end %>
+          </p>
+        </li>
+
+      <% end %>
+    </ul>
   </div>
 </div>
-<%# <%= link_to 'New Receive', new_receive_path %>
-<%# link_to 'Edit', edit_message_path(@message) %>
-<%# link_to 'Back', messages_path %>
+</div>

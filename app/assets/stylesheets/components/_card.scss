@@ -2,7 +2,7 @@
 	border: none;
 	border-left: solid 20px #5d165d;
 	padding: 5px 20px;
-	height: 300px;
+	height: 295px;
 
 	.card-header {
 		color: #5d165d;
@@ -30,19 +30,45 @@
 		padding: 0;
 		margin: 10px 0 0 0;
 		height: 100px;
-		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		position: relative;
+
+		.content-fade {
+			display: block;
+			width: 318px;
+			height: 96px;
+			position: absolute;
+			top: 90px;
+			margin: 0;
+			padding: 0;
+			line-height: 140px;
+			color: #4a7f1e;
+			font-size: 12px;
+			font-weight: bold;
+			background: rgb(255, 255, 255);
+			background: linear-gradient(
+				0deg,
+				rgba(255, 255, 255, 1) 0%,
+				rgba(255, 255, 255, 1) 38%,
+				rgba(255, 255, 255, 0) 100%
+			);
+		}
 	}
+
 	.card-footer {
-		padding: 0;
+		padding: 10px 0 0 0;
 		margin: 0;
 
 		p {
 			font-size: 14px;
-			text-align: right;
 			margin: 5px;
-			margin-bottom: none;
 		}
 	}
+}
+.height-auto {
+	height: unset !important;
+	overflow: visible;
+	text-overflow: unset;
+	min-height: 450px;
 }
