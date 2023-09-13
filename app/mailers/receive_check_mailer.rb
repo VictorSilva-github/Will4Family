@@ -5,7 +5,7 @@ class ReceiveCheckMailer < ApplicationMailer
     @receive = receive
     mail(to: receive.email, subject: 'Message back mailer Will4familly')
   end
-  #caso voce nao faz login a mais de (user_checkin) dias,
+  # caso voce nao faz login a mais de (user_checkin) dias,
    # te mandaremos um email, te enviaremos email todos os (telegram_days)
 
   def tolerance_check(user)
