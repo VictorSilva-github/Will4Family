@@ -14,7 +14,7 @@ victor = User.create!({
   fullname: "Vitor",
   birthday: "1990-01-01",
   # birthday: Date.new(1990, 01, 01),
-  user_cheking: "60",
+  checkin_days: "60",
   tolerance_days: "5",
   document_type:"ID",
   document_number: "1231456789",
@@ -31,7 +31,7 @@ victor = User.create!({
 bernard = User.create!({
   fullname: "Bernard",
   birthday: "1993-01-01",
-  user_cheking: "60",
+  checkin_days: "60",
   tolerance_days: "5",
   document_type: "ID",
   document_number: "1234233367189",

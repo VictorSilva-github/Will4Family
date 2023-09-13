@@ -21,7 +21,7 @@
                 input_html: { autocomplete: "gender" },
                 collection: ['Male', 'Female', 'Prefer not to say'] %>
 
-   <%= f.input :user_cheking, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
+   <%= f.input :checkin_days, collection: [['15 days', 15], ['30 days', 30], ['60 days', 60], ['90 days', 90]], label: "Checking in days" %>
 
    <%# NAO PODE SER MENO QUE last_checking_at %>
    <%# f.input :tolerance_days, collection: (1..5), label: "Select tolerance days" %>
