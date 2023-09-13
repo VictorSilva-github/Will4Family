@@ -15,8 +15,15 @@
             as: :string,
             wrapper_html: { class: "d-none", data: { message_form_target: "messageDate" } },
             input_html: { data: { controller: "datepicker" } }%>
-      <%= f.input :description %>
-          <%= f.button :submit, class: "btn "%>
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.rich_text_area :description %>
+      </div>
+
+
+
+      <%= f.button :submit, class: "btn "%>
+
         <% end %>
       </div>
     </div>
