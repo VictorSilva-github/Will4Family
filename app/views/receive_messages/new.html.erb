@@ -3,7 +3,7 @@
   <p><%= @message.description %></p>
 
   <%= simple_form_for([@message, @receive_message]) do |f| %>
-    <%= f.association :receive, label: "Add a recipient to this message" %>
+    <%= f.association :receive, label: "Add a recipient to this message", collection: current_user.receives %>
     <%= f.submit "Add recipient", class: "btn btn-last" %>
   <% end %>
 
