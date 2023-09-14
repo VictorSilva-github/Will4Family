@@ -55,7 +55,7 @@ gem "bootsnap", require: false
 gem "cloudinary", "~> 1.27.0"
 
 # SIDEKIQ
-gem "sidekiq"
+gem "sidekiq", "~> 6"
 gem "sidekiq-failures", "~> 1.0"
 
 # Use Sass to process CSS
