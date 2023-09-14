@@ -8,32 +8,32 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag("shush.jpg") %>
+        <%= image_tag("shush3.jpg") %>
         <div class="container">
-          <div class="carousel-caption text-start">
+          <div class="carousel-caption text-center caption1">
             <h1>Secrets?</h1>
             <p>You don't have to take them with you. Share them with those who matter.</p>
-            <p><a class="btn btn-lg " href="#">Sign up today</a></p>
+            <p><%= link_to "Sign up today", new_user_session_path, class: "btn btn-last" %></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag("secrets.jpg") %>
+        <%= image_tag("secrets3.jpg") %>
         <div class="container">
-          <div class="carousel-caption">
+          <div class="carousel-caption text-start caption2">
             <h1>Closure.</h1>
             <p>Leave nothing unsaid.</p>
-            <p><a class="btn btn-lg " href="#">Learn more</a></p>
+            <p><%= link_to "Get started", new_user_session_path, class: "btn btn-last" %></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag("closure.jpg") %>
+        <%= image_tag("reminders.jpg") %> 
         <div class="container">
-          <div class="carousel-caption text-end">
+          <div class="carousel-caption text-start caption3">
             <h1>For good measure...</h1>
             <p>... little everyday reminders.</p>
-            <p><a class="btn btn-lg " href="#">Browse gallery</a></p>
+            <p><%= link_to "Start now", new_user_session_path, class: "btn btn-last" %></p>
           </div>
         </div>
       </div>
