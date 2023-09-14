@@ -78,32 +78,31 @@ h2 {
 		-webkit-user-select: none;
 		touch-action: manipulation;
 		width: 100%;
+
+		&:hover {
+			box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+				rgba(0, 0, 0, 0.4) 0 1px 2px;
+			text-decoration: none;
+			transition-duration: 0.15s, 0.15s;
+		}
+		&:active {
+			box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset,
+				rgba(0, 0, 0, 0.4) 0 1px 1px;
+		}
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.6;
+		}
+
+		&:disabled:active {
+			pointer-events: none;
+		}
+
+		&:disabled:hover {
+			box-shadow: none;
+		}
 	}
 
-	.btn:hover {
-		box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
-			rgba(0, 0, 0, 0.4) 0 1px 2px;
-		text-decoration: none;
-		transition-duration: 0.15s, 0.15s;
-	}
-
-	.btn:active {
-		box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset,
-			rgba(0, 0, 0, 0.4) 0 1px 1px;
-	}
-
-	.btn:disabled {
-		cursor: not-allowed;
-		opacity: 0.6;
-	}
-
-	.btn:disabled:active {
-		pointer-events: none;
-	}
-
-	.btn:disabled:hover {
-		box-shadow: none;
-	}
 	.form-actions {
 		display: flex;
 		justify-content: space-between;
@@ -145,4 +144,3 @@ i:hover {
 	color: #7e7e7e;
 	font-weight: bold;
 }
-
