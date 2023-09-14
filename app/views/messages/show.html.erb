@@ -15,7 +15,7 @@
   <p><%= @message.message_type %></p>
   <% if @message.ultimate_date.present? %>
     <p>Scheduled for <%= @message.ultimate_date.strftime('%B %d, %Y') %></p>
-  <% else %>
+    <% else %>
     <p>Automatic delivery</p>
   <%end %>
 </div>
