@@ -12,9 +12,11 @@
         </ul>
       </div>
       <div class="card-footer">
-      <% if message.ultimate_date %>
+      <% if message.ultimate_date.present? %>
         <p class="text-end text-discreet">Scheduled for <%= message.ultimate_date.strftime('%B %d, %Y') %></p>
-      <% end %>
+      <% else %>
+        <p>Automatic delivery</p>
+    <%end %>
       </div>
 
   </div>
