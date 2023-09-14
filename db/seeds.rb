@@ -25,7 +25,8 @@ victor = User.create!({
   city: "Sao Paulo",
   country: "Brasil",
   email:"cap@gmail.com",
-  password:"123123"
+  password:"123123",
+  admin: true
 })
 
 bernard = User.create!({
