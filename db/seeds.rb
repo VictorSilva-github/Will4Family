@@ -25,7 +25,8 @@ victor = User.create!({
   city: "Sao Paulo",
   country: "Brasil",
   email:"cap@gmail.com",
-  password:"123123"
+  password:"123123",
+  admin: true
 })
 
 bernard = User.create!({
@@ -46,18 +47,18 @@ bernard = User.create!({
 })
 
 Receive.create!({
-  name: "heitor",
-  email: "email@gmail.com",
-  relationship: "Amigo",
-  phone_number: "5321555786",
-  additional_info: "Nada",
-  user_id: victor.id
-})
+    name: "heitor",
+    email: "email@gmail.com",
+    relationship: "Amigo",
+    phone_number: "5321555786",
+    additional_info: "Nada",
+    user_id: victor.id
+  })
 
-message12 = Message.create!({
+ message12 = Message.create!({
   title: "Teste 1",
-  message_type: "Message",
-  description: "Description 1",
-  ultimate_date: "2021-01-01",
+  message_type: "Scheduled message",
+  description: "Hello World",
+  ultimate_date: "2021-09-14",
   user_id: victor.id
 })
