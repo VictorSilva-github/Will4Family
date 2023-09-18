@@ -24,14 +24,10 @@
 </div>
 <div class="card-footer">
   <div>
-    <% if @message.receive_messages.present? %>
-      <h5 class="d-inline me-2 my-3">Recipients</h5>
-
+   <h5 class="d-inline me-2 my-3">Recipients</h5>
       <%= link_to new_message_receive_message_path(@message, message: @message), method: :post, class: "d-inline fs-5" do %>
         <i class="fa-solid fa-square-plus"></i>
       <% end %>
-
-    <% end %>
   </div>
   <div>
     <ul class="recipients-list mt-4">

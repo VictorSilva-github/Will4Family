@@ -1,8 +1,8 @@
 class ReceiveMessagesController < ApplicationController
 
   def new
-    @receive_message = ReceiveMessage.new
     @message = Message.find(params[:message_id])
+    @receive_message = ReceiveMessage.new
   end
 
   def create
