@@ -4,6 +4,10 @@
     <h2> <%= receive.name %>'s information</h2>
   <% else %>
     <h2>Add a new recipient</h2>
+
+    <%# PARA FINS DIDATICOS %>
+    <%#params[:message] %>
+    <%= @message.id %>
   <% end %>
 
   <%= simple_form_for(receive) do |f| %>
@@ -13,9 +17,10 @@
     <%= f.input :relationship, label: "relationship" %>
     <%= f.input :phone_number, label: "Phone Number" %>
     <%= f.input :additional_info, label: "additional Info" %>
-    <%=
-    f.input :message_id, :as => :hidden, :input_html => { value: params[:message] }
-    %>
+    <% if @message.present? %>
+    <%# if @receive.id.blank? %>
+      <%= f.input :message_id, :as => :hidden, :input_html => { value: @message.id } %>
+    <% end %>
     <%= f.submit receive.id.present? ? "Save" : "Add new recipient",  class: "btn btn-last" %>
 
   <% end %>

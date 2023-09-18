@@ -1,4 +1,6 @@
 class ReceivesController < ApplicationController
+
+
   def index
     @receives = Receive.all
   end
@@ -8,6 +10,9 @@ class ReceivesController < ApplicationController
   end
 
   def new
+    if params.key?(:message)
+      @message = Message.find(params[:message])
+    end
     @receive = Receive.new
   end
 
@@ -15,21 +20,27 @@ class ReceivesController < ApplicationController
     @receive = Receive.new(receive_params)
     @receive.user = current_user
     if @receive.save
-      redirect_to new_message_receive_message_path(params[:receive][:message_id])
+      # raise
+      redirect_to new_message_receive_message_path(message_permitted[:message_id])
     else
+      @message = Message.find(message_permitted[:message_id])
       render 'new', status: :unprocessable_entity
     end
   end
 
   def edit
+    if params.key?(:message)
+      @message = Message.find(params[:message])
+    end
     @receive = Receive.find(params[:id])
   end
 
   def update
     @receive = Receive.find(params[:id])
     if @receive.update(receive_params)
-      redirect_to message_path(params[:receive][:message_id])
+      redirect_to message_path(message_permitted[:message_id])
     else
+      @message = Message.find(message_permitted[:message_id])
       render 'edit', status: :unprocessable_entity
     end
   end
@@ -42,6 +53,10 @@ class ReceivesController < ApplicationController
   end
 
   private
+
+  def message_permitted
+    params.require(:receive).permit(:message_id)
+  end
 
   def receive_params
     params.require(:receive).permit(:name, :email, :relationship, :phone_number, :additional_info)
