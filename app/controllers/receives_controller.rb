@@ -1,6 +1,5 @@
 class ReceivesController < ApplicationController
 
-
   def index
     @receives = Receive.all
   end
@@ -21,7 +20,8 @@ class ReceivesController < ApplicationController
     @receive.user = current_user
     if @receive.save
       # raise
-      redirect_to new_message_receive_message_path(message_permitted[:message_id])
+      redirect_to new_message_path
+      # redirect_to new_message_receive_message_path(message_permitted[:message_id])
     else
       @message = Message.find(message_permitted[:message_id])
       render 'new', status: :unprocessable_entity
