@@ -6,8 +6,8 @@
     <h2>Add a new recipient</h2>
 
     <%# PARA FINS DIDATICOS %>
-    <%#params[:message] %>
-    <%= @message.id %>
+    <% params[:message] %>
+    <%= @message&.id %>
   <% end %>
 
   <%= simple_form_for(receive) do |f| %>
